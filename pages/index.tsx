@@ -1,10 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import React from "react"
 
-export default function Home() {
-  return (
-    <>
-      <h1>HI</h1>
-    </>
-  )
+export default class Home extends React.Component {
+  render() {
+    return (
+      <>
+        <h1>HI</h1>
+      </>
+    )
+  }
 }
