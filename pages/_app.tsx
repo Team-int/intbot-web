@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
         <NavigationBar></NavigationBar>
-        <br /><br /><br /><br />
+        <br /><br /><br />
         <Component {...pageProps} />
     </>
   )

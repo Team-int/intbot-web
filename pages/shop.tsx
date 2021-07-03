@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react"
 import ShopItem from "../components/shopItem"
+import LoadingCircle from "../components/loadingCircle"
 import api from "../utils/api"
 
 interface Merch {
@@ -24,10 +25,14 @@ const ShopPage: FC = () => {
     
     if (!isLoaded) {
         return (
-            <div className="text-center">
-                <p className="mt-2 text-base md:text-3xl">상점</p>
-                <p className="mt-2 text-base md:text-lg">무슨 아이템이 있을까?</p>
-                <p className="mt-10 text-xl">로딩중...</p>
+            <div className="text-center mt-8">
+                <p className="mt-2 text-lg md:text-3xl">상점</p>
+                <p className="mt-2 text-sm md:text-lg">무슨 아이템이 있을까?</p>
+                <br /><br /><br /><br />
+                <LoadingCircle
+                    width={35}
+                    height={35}
+                />
             </div>
         )
     }
