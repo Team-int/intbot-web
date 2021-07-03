@@ -10,7 +10,7 @@ interface ItemProps {
 
 const ShopItem: FC<ItemProps> = ({ id, name, amount, description }) => {
     return (
-        <div className="relative bg-gray-700 shadow-lg h-16 md:h-36 w-auto md:w-42 rounded-lg p-4 pl-5">
+        <div className="relative bg-gray-700 shadow-lg h-32 md:h-36 w-auto md:w-42 rounded-lg p-4 pl-5">
             <p className="text-base md:text-lg">{name}</p>
             <p className="text-sm md:text-base">가격: {amount}원</p>
             <p className="mt-1 text-sm">- {description}</p>
