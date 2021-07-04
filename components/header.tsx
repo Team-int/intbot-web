@@ -28,7 +28,7 @@ const NavigationBar: FC = () => {
                         <Link href="/stock">주식</Link>
                     </div>
                     <div className="hidden md:flex items-center  text-lg font-semibold text-white  dark:text-white mx-6">
-                        <Link href={"https://discord.com/api/oauth2/authorize?client_id=798709769929621506&permissions=1077275712&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fcallback&scope=bot"}>초대</Link>
+                        <Link href={"https://discord.com/api/oauth2/authorize?client_id=798709769929621506&permissions=0&scope=bot"}>초대</Link>
                     </div>
                     </div>
                 </div>
