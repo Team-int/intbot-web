@@ -6,4 +6,8 @@ module.exports = {
     config.plugins.push(new DotenvWebpackPlugin())
     return config
   },
+  images: {
+   	 loader: "imgix",
+		 path: "https://cdn/",
+  },
 }
