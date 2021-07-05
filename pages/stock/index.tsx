@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react"
-//import Chart from "react-apexcharts"
-import LoadingCircle from "../components/loadingCircle"
-import api from "../utils/api"
+import StockItem from "../../components/stockItem"
+import LoadingCircle from "../../components/loadingCircle"
+import api from "../../utils/api"
 
 const STOCK_LIST: string[] = [
     'MCIT',
@@ -13,30 +13,30 @@ const STOCK_LIST: string[] = [
     'BTCN',
 ]
 
+interface StockDataInterface {
+    _id: string
+    money: number
+    name: string
+    previous: number
+    code: string
+    lastStockUpdateData: [number, number[]][]
+}
+
 const StockPage: FC = () => {
     const [latestViewedStock, setlatestViewedStock] = useState('SJPG')
-    const [loadState, setLoadState] = useState(false)
-    const [stockData, setStockData] = useState({})
+    const [loadState, setLoadState] = useState<boolean>(false)
+    const [stockData, setStockData] = useState<StockDataInterface[]>([])
 
     useEffect(() => {
         const stockCode = localStorage.getItem('stockCode')
         if (stockCode && STOCK_LIST.includes(stockCode))  setlatestViewedStock(stockCode)
         
-        for (const stock in STOCK_LIST) {
-            api.get(`/v1/stock/${STOCK_LIST[stock]}`)
+        api.get('/v1/stock')
             .then(res => res.data)
             .then(data => {
-                setStockData({
-                    [data.code]: {
-                        isLoaded: true,
-                        name: data.name,
-                        series: data.lastStockUpdateData,
-                    }
-                })
-                if (Number(stock) >= STOCK_LIST.length - 1)
-                    setLoadState(true)
+                setStockData(data)
+                setLoadState(true)
             })
-        }
     })
 
     if (!loadState) {
@@ -67,7 +67,19 @@ const StockPage: FC = () => {
                     <p className="pb-8"></p>
                 </div>
             </div>
-            
+            <div className="mt-6 grid grid-cols-3 md:grid-cols-6 gap-4 auto-cols-max md:auto-cols-min mx-4 md:mx-8 text-left">
+                {Object.entries(stockData).map(v => {
+                    return (
+                        // eslint-disable-next-line react/jsx-key
+                        <StockItem 
+                            name={v[1].name}
+                            code={v[1].code}
+                            money={v[1].money}
+                            previous={v[1].previous}
+                        />
+                    )
+                })}
+            </div>
         </div>
     )
 }
