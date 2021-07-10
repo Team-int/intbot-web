@@ -9,7 +9,7 @@ module.exports = {
       current: 'currentColor',
       ...colors,
       discord: '#2c2f33',
-    }
+    },
   },
   variants: {
     extend: {},

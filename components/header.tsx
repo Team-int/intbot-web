@@ -13,7 +13,7 @@ const NavigationBar: FC = () => {
                         <Link href="/">
                         <a href="/">
                             <span className="text-xl md:text-2xl font-bold tracking-tight flex items-center flex-shrink-0  md:mr-6  text-white dark:text-white">
-                                인트봇
+                                이름
                             </span>
                         </a>
                         </Link>

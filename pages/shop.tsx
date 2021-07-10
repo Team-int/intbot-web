@@ -15,7 +15,7 @@ const ShopPage: FC = () => {
     const [isLoaded, setLoadState] = useState(false)
 
     useEffect(() => {
-        api.get('/merches')
+        api.get('/v1/shop/merches')
         .then(res => {
             setMerches(res.data)
             setLoadState(true)

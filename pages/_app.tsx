@@ -1,13 +1,13 @@
 import '../styles/globals.css'
-import NavigationBar from '../components/header'
 import type { AppProps } from 'next/app'
+import Layout from '../components/layout'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
-        <NavigationBar></NavigationBar>
-        <br /><br /><br />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
     </>
   )
 }
